@@ -1,0 +1,11 @@
+[Icon Theme]
+Name=Neet-Papirus
+Comment=Neet Crimson Papirus overrides
+Inherits=Papirus-Dark
+Directories=48x48/mimetypes
+Hidden=true
+
+[48x48/mimetypes]
+Size=48
+Context=MimeTypes
+Type=Fixed

@@ -9531,3 +9531,23 @@ headerbar button:active {
     background: #521C1E !important;
 }
 
+
+/* NEET CRIMSON — Nautilus sidebar */
+widget.sidebar-pane {
+    background-color: #3F2E2B;
+}
+
+widget.sidebar-pane row.sidebar-row:selected {
+    background-color: #2C2423;
+    color: #FF2F3D;
+    border-radius: 8px;
+    margin: 2px 6px;
+}
+
+widget.sidebar-pane row.sidebar-row:selected label {
+    color: #FF2F3D;
+}
+
+widget.sidebar-pane row.sidebar-row:selected image {
+    color: #FF2F3D;
+}
