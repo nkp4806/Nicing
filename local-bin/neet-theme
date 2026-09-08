@@ -153,8 +153,12 @@ fi
 # No a11y
 # ─────────────────────────────────────────────
 
-gnome-extensions enable noa11y@popov895.ukr.net 2>/dev/null || true
-echo "✓ No a11y"
+if gnome-extensions info noa11y@popov895.ukr.net >/dev/null 2>&1; then
+    gnome-extensions enable noa11y@popov895.ukr.net 2>/dev/null || true
+    echo "✓ No a11y"
+else
+    echo "• No a11y extension not installed — skipped"
+fi
 
 # ─────────────────────────────────────────────
 # Fastfetch
