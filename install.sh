@@ -37,6 +37,7 @@ missing=()
 command_exists gsettings || missing+=("gsettings")
 command_exists gnome-extensions || missing+=("gnome-extensions")
 command_exists gnome-terminal || missing+=("gnome-terminal")
+command_exists systemctl || missing+=("systemctl")
 
 if ((${#missing[@]})); then
     echo
@@ -154,6 +155,20 @@ copy_file \
     "$HOME_DIR/.config/btop/themes/NEET.theme"
 
 echo "✓ btop"
+
+# ─────────────────────────────────────────────
+# Neet Papirus icons
+# ─────────────────────────────────────────────
+
+ICON_THEME_DIR="$HOME_DIR/.icons/Neet-Papirus"
+
+mkdir -p "$HOME_DIR/.icons"
+rm -rf "$ICON_THEME_DIR"
+cp -a \
+    "$REPO_DIR/config/icons/Neet-Papirus" \
+    "$ICON_THEME_DIR"
+
+echo "✓ Neet Papirus icons"
 
 # ─────────────────────────────────────────────
 # GTK
