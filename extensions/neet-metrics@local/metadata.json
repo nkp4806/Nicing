@@ -1,0 +1,7 @@
+{
+  "uuid": "neet-metrics@local",
+  "name": "Neet Metrics",
+  "description": "Compact CPU, RAM and GPU metrics for the top bar.",
+  "version": 1,
+  "shell-version": ["46"]
+}

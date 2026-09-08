@@ -1,0 +1,10 @@
+/* Neet Metrics — Glass Bar */
+.neet-metrics {
+    padding: 0 8px;
+    margin-right: 6px;
+    color: #E8E0DF;
+    font-size: 12px;
+    font-weight: 600;
+    font-feature-settings: "tnum";
+    text-shadow: none;
+}
