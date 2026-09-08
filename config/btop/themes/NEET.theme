@@ -1,0 +1,85 @@
+# NEET — custom btop theme
+
+# Main background
+theme[main_bg]="#100C0D"
+
+# Main text
+theme[main_fg]="#E8E0DF"
+
+# Box titles
+theme[title]="#EBAA82"
+
+# Keyboard shortcut highlights
+theme[hi_fg]="#D86050"
+
+# Selected process background
+theme[selected_bg]="#311416"
+
+# Selected process foreground
+theme[selected_fg]="#EBAA82"
+
+# Inactive / disabled text
+theme[inactive_fg]="#9A8F90"
+
+# Text displayed over graphs
+theme[graph_text]="#9A8F90"
+
+# Background of percentage meters
+theme[meter_bg]="#311416"
+
+# Misc process information
+theme[proc_misc]="#EBAA82"
+
+# Box outlines
+theme[cpu_box]="#D86050"
+theme[mem_box]="#D86050"
+theme[net_box]="#D86050"
+theme[proc_box]="#D86050"
+
+# Box divider lines
+theme[div_line]="#311416"
+
+# Temperature graph
+theme[temp_start]="#D86050"
+theme[temp_mid]="#EBAA82"
+theme[temp_end]="#EBAA82"
+
+# CPU graph
+theme[cpu_start]="#D86050"
+theme[cpu_mid]="#EBAA82"
+theme[cpu_end]="#D86050"
+
+# Memory / disk free
+theme[free_start]="#311416"
+theme[free_mid]="#D86050"
+theme[free_end]="#EBAA82"
+
+# Cached memory / disk
+theme[cached_start]="#311416"
+theme[cached_mid]="#D86050"
+theme[cached_end]="#EBAA82"
+
+# Available memory / disk
+theme[available_start]="#311416"
+theme[available_mid]="#EBAA82"
+theme[available_end]="#D86050"
+
+# Used memory / disk
+theme[used_start]="#D86050"
+theme[used_mid]="#EBAA82"
+theme[used_end]="#EBAA82"
+
+# Download graph
+theme[download_start]="#D86050"
+theme[download_mid]="#EBAA82"
+theme[download_end]="#D86050"
+
+# Upload graph
+theme[upload_start]="#EBAA82"
+theme[upload_mid]="#EBAA82"
+theme[upload_end]="#D86050"
+
+# Process usage gradient
+theme[process_start]="#D86050"
+theme[process_mid]="#EBAA82"
+theme[process_end]="#EBAA82"

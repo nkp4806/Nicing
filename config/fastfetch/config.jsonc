@@ -1,0 +1,186 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+    "logo": {
+        "type": "file",
+        "source": "~/.config/fastfetch/neet.txt",
+
+        "color": {
+            "1": "#D86050"
+        },
+
+        "padding": {
+            "right": 3
+        }
+    },
+
+    "display": {
+        "separator": "  ",
+
+        "color": {
+            "keys": "#E08A68",
+            "output": "#E8E0DF",
+            "title": "#D86050"
+        },
+
+        "key": {
+            "width": 11,
+            "type": "string"
+        },
+
+        "bar": {
+            "width": 10,
+
+            "char": {
+                "elapsed": "█",
+                "total": "░"
+            },
+
+            "color": {
+                "elapsed": "#D86050",
+                "total": "#311416",
+                "border": "#E8E0DF"
+            }
+        },
+
+        "percent": {
+            "type": [
+                "bar",
+                "num",
+                "num-color"
+            ],
+
+            "color": {
+                "green": "#A73732",
+                "yellow": "#D86050",
+                "red": "#EBAA82"
+            }
+        }
+    },
+
+    "modules": [
+        {
+            "type": "title",
+            "color": {
+                "user": "#A73732",
+                "at": "#A73732",
+                "host": "#A73732"
+            }
+        },
+
+        "separator",
+
+        {
+            "type": "os",
+            "key": "OS"
+        },
+
+        {
+            "type": "host",
+            "key": "HOST"
+        },
+
+        {
+            "type": "kernel",
+            "key": "KERNEL"
+        },
+
+        {
+            "type": "uptime",
+            "key": "UPTIME"
+        },
+
+        {
+            "type": "packages",
+            "key": "PKGS"
+        },
+
+        {
+            "type": "shell",
+            "key": "SHELL"
+        },
+
+        {
+            "type": "display",
+            "key": "DISPLAY"
+        },
+
+        {
+            "type": "de",
+            "key": "DE"
+        },
+
+        {
+            "type": "wm",
+            "key": "WM"
+        },
+
+        {
+            "type": "theme",
+            "key": "THEME"
+        },
+
+        {
+            "type": "icons",
+            "key": "ICONS"
+        },
+
+        {
+            "type": "font",
+            "key": "FONT"
+        },
+
+        {
+            "type": "cursor",
+            "key": "CURSOR"
+        },
+
+        {
+            "type": "terminal",
+            "key": "TERM"
+        },
+
+        {
+            "type": "cpu",
+            "key": "CPU"
+        },
+
+        {
+            "type": "gpu",
+            "key": "GPU"
+        },
+
+        {
+            "type": "command",
+            "key": "CPU USAGE",
+            "text": "~/.local/bin/neet-cpu-display.sh",
+            "format": "{result}"
+        },
+
+        {
+            "type": "command",
+            "key": "MEMORY",
+            "text": "~/.config/fastfetch/resource-bar.sh memory",
+            "format": "{result}"
+        },
+
+        {
+            "type": "command",
+            "key": "DISK",
+            "text": "~/.config/fastfetch/resource-bar.sh disk",
+            "format": "{result}"
+        },
+
+        {
+            "type": "command",
+            "key": "BATTERY",
+            "text": "~/.config/fastfetch/resource-bar.sh battery",
+            "format": "{result}"
+        },
+
+        {
+            "type": "localip",
+            "key": "IP"
+        }
+    ]
+}

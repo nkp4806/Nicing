@@ -1,0 +1,203 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+THEMES_DIR="$HOME/.config/neet-themes"
+THEME="${1:-}"
+
+usage() {
+    echo "Usage:"
+    echo "  neet-theme list"
+    echo "  neet-theme current"
+    echo "  neet-theme <theme>"
+}
+
+# ─────────────────────────────────────────────
+# Arguments
+# ─────────────────────────────────────────────
+
+if [[ "$THEME" == "list" ]]; then
+    echo "Available themes:"
+    find "$THEMES_DIR" -mindepth 1 -maxdepth 1 -type d \
+        -printf '  %f\n' | sort
+    exit 0
+fi
+
+if [[ "$THEME" == "current" ]]; then
+    if [[ -f "$THEMES_DIR/.current" ]]; then
+        cat "$THEMES_DIR/.current"
+    else
+        echo "No theme recorded."
+    fi
+    exit 0
+fi
+
+if [[ -z "$THEME" ]]; then
+    usage
+    exit 1
+fi
+
+DIR="$THEMES_DIR/$THEME"
+
+# Validate BEFORE touching anything.
+if [[ ! -d "$DIR" ]]; then
+    echo "Error: theme '$THEME' does not exist."
+    echo
+    "$0" list
+    exit 1
+fi
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "  Applying theme: $THEME"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+# ─────────────────────────────────────────────
+# Wallpaper
+# ─────────────────────────────────────────────
+
+if [[ -f "$DIR/wallpaper.conf" ]]; then
+    source "$DIR/wallpaper.conf"
+    WALLPAPER="${WALLPAPER/#\$HOME/$HOME}"
+
+    if [[ -f "$WALLPAPER" ]]; then
+        URI="file://$WALLPAPER"
+        gsettings set org.gnome.desktop.background picture-uri "$URI"
+        gsettings set org.gnome.desktop.background picture-uri-dark "$URI"
+        echo "✓ Wallpaper"
+    else
+        echo "⚠ Wallpaper not found: $WALLPAPER"
+    fi
+fi
+
+# ─────────────────────────────────────────────
+# GNOME interface
+# ─────────────────────────────────────────────
+
+if [[ -f "$DIR/interface.conf" ]]; then
+    source "$DIR/interface.conf"
+
+    gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
+    gsettings set org.gnome.desktop.interface icon-theme "$icon_theme"
+    gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
+    gsettings set org.gnome.desktop.interface font-name "$font_name"
+    gsettings set org.gnome.desktop.interface monospace-font-name "$monospace_font_name"
+    gsettings set org.gnome.desktop.interface color-scheme "$color_scheme"
+
+    echo "✓ GNOME interface"
+fi
+
+# ─────────────────────────────────────────────
+# GNOME Terminal
+# ─────────────────────────────────────────────
+
+if [[ -f "$DIR/terminal-theme.conf" ]]; then
+    source "$DIR/terminal-theme.conf"
+
+    PROFILE="$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")"
+    PROFILE_PATH="org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${PROFILE}/"
+
+    gsettings set "$PROFILE_PATH" use-system-font "$USE_SYSTEM_FONT"
+    gsettings set "$PROFILE_PATH" use-theme-colors "$USE_THEME_COLORS"
+    gsettings set "$PROFILE_PATH" use-theme-transparency "$USE_THEME_TRANSPARENCY"
+    gsettings set "$PROFILE_PATH" use-transparent-background "$USE_TRANSPARENT_BACKGROUND"
+    gsettings set "$PROFILE_PATH" background-color "$BACKGROUND"
+    gsettings set "$PROFILE_PATH" foreground-color "$FOREGROUND"
+    gsettings set "$PROFILE_PATH" font "$FONT"
+    gsettings set "$PROFILE_PATH" palette "$PALETTE"
+    gsettings set "$PROFILE_PATH" background-transparency-percent "$TRANSPARENCY_PERCENT"
+
+    echo "✓ Terminal"
+fi
+
+
+if [[ -f "$DIR/gtk-4.0.css" ]]; then
+    mkdir -p "$HOME/.config/gtk-4.0"
+    cp "$DIR/gtk-4.0.css" "$HOME/.config/gtk-4.0/gtk.css"
+    echo "✓ GTK4 CSS"
+fi
+
+if [[ -f "$DIR/gtk-3.0.css" ]]; then
+    mkdir -p "$HOME/.config/gtk-3.0"
+    cp "$DIR/gtk-3.0.css" "$HOME/.config/gtk-3.0/gtk.css"
+    echo "✓ GTK3 CSS"
+fi
+
+# ─────────────────────────────────────────────
+# Blur My Shell
+# ─────────────────────────────────────────────
+
+if [[ -f "$DIR/blur-my-shell.conf" ]]; then
+    source "$DIR/blur-my-shell.conf"
+    echo "✓ Blur My Shell"
+fi
+
+# ─────────────────────────────────────────────
+# Dock
+# ─────────────────────────────────────────────
+
+if [[ -f "$DIR/dock.conf" ]]; then
+    source "$DIR/dock.conf"
+    echo "✓ Dock"
+fi
+
+# ─────────────────────────────────────────────
+# Hide Top Bar
+# ─────────────────────────────────────────────
+
+if [[ -f "$DIR/hide-top-bar.conf" ]]; then
+    source "$DIR/hide-top-bar.conf"
+    echo "✓ Hide Top Bar"
+fi
+
+# ─────────────────────────────────────────────
+# No a11y
+# ─────────────────────────────────────────────
+
+gnome-extensions enable noa11y@popov895.ukr.net 2>/dev/null || true
+echo "✓ No a11y"
+
+# ─────────────────────────────────────────────
+# Fastfetch
+# ─────────────────────────────────────────────
+
+if [[ -f "$DIR/fastfetch.jsonc" ]]; then
+    mkdir -p "$HOME/.config/fastfetch"
+    cp "$DIR/fastfetch.jsonc" "$HOME/.config/fastfetch/config.jsonc"
+    echo "✓ Fastfetch config"
+fi
+
+if [[ -f "$DIR/neet.txt" ]]; then
+    mkdir -p "$HOME/.config/fastfetch"
+    cp "$DIR/neet.txt" "$HOME/.config/fastfetch/neet.txt"
+    echo "✓ Fastfetch ASCII"
+fi
+
+# ─────────────────────────────────────────────
+# Bash prompt
+# ─────────────────────────────────────────────
+
+if [[ -f "$DIR/bash-prompt.sh" ]]; then
+    cp "$DIR/bash-prompt.sh" "$HOME/.config/neet-theme-prompt.sh"
+    source "$HOME/.config/neet-theme-prompt.sh"
+    echo "✓ Bash prompt"
+fi
+
+# ─────────────────────────────────────────────
+# User Theme
+# ─────────────────────────────────────────────
+
+if [[ "$THEME" == "crimson" ]]; then
+    export GSETTINGS_SCHEMA_DIR="$HOME/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com/schemas"
+    gsettings set org.gnome.shell.extensions.user-theme name 'Colloid-Crimson'
+    echo "✓ User Theme"
+fi
+
+# ─────────────────────────────────────────────
+# Record active theme
+# ─────────────────────────────────────────────
+
+echo "$THEME" > "$THEMES_DIR/.current"
+
+echo
+echo "✓ Theme '$THEME' applied."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

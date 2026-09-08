@@ -1,0 +1,22 @@
+# Secrets / credentials
+*.key
+*.pem
+*.token
+credentials*
+secrets*
+hosts.yml
+
+# Runtime / cache
+.cache/
+.local/share/
+.local/state/
+*.log
+
+# Backups
+*.before-*
+*.bak
+*.backup
+
+# Generated / temporary
+*.tmp
+*.swp

@@ -1,0 +1,23 @@
+
+
+
+/* NEET CRIMSON — GNOME Terminal titlebar */
+window.background.csd .titlebar,
+window.background.csd .titlebar.default-decoration,
+window.background.csd .titlebar.default-decoration:backdrop {
+    background-color: #311416;
+    background-image: none;
+    color: #E8E0DF;
+    box-shadow: inset 0 -1px rgba(216, 96, 80, 0.35);
+}
+
+
+
+/* NEET CRIMSON — GNOME Terminal */
+terminal-window headerbar,
+terminal-window .titlebar,
+terminal-window decoration {
+    background-image: none;
+    background-color: #311416;
+    color: #E8E0DF;
+}
