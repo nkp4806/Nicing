@@ -6,7 +6,7 @@ Nicing is my personal GNOME rice for Ubuntu.
 
 I built this because at some point I got tired of the default Ubuntu desktop looking... well, default. And to look cool in front of people around me peeking on my laptop.
 
-So I started messing with GTK, GNOME Shell, Fastfetch, btop, terminal colors, icons, wallpapers, extensions, random CSS bullshit, and eventually it turned into an actual setup, in the mean time, I fucked it up dozens of times, so then I started to use git.
+So I started messing with GTK, GNOME Shell, Fastfetch, btop, terminal colors, icons, wallpapers, extensions, random CSS bullshit, and eventually it turned into an actual setup, in the meantime, I fucked it up dozens of times, so then I started to use git.
 
 ---
 
@@ -77,7 +77,7 @@ cd Nicing
 ```
 Then run:
 
-``` bash
+```bash
 chmod +x install.sh
 ./install.sh
 ```
@@ -110,7 +110,7 @@ The installer isn't just copying one GTK file but it sets up the following
 
 -   custom Bash prompt
 -   Fastfetch configuration
--   My ASCII [Beherit]
+-   My ASCII (Beherit)
 -   useful Git aliases
 -   theme switcher
 
@@ -136,7 +136,7 @@ For example, image file icons are changed from the usual cyan Papirus style to t
 
 The Griffith wallpaper is installed into:
 
-``` text
+```text
 ~/Pictures/Wallpapers/
 ```
 
@@ -144,7 +144,7 @@ The Griffith wallpaper is installed into:
 
 ## the `.bashrc` thing
 
-IMPORTANT
+*important*
 
 The installer does **NOT** overwrite your existing `~/.bashrc`.
 
@@ -154,13 +154,11 @@ Instead, Nicing checks whether its Bash integration is already present.
 
 If it isn't, it adds a clearly marked block:
 
-``` bash
+```bash
 # >>> NEET RICE >>>
 ...
 # <<< NEET RICE <<<
 ```
-[i'm so bad with naming]
-
 
 So your existing `.bashrc` stays intact.
 
@@ -172,7 +170,7 @@ If Nicing is already installed, the installer detects the existing integration a
 
 Nicing comes with a small theme switcher:
 
-``` bash
+```bash
 neet-theme crimson
 ```
 
@@ -180,15 +178,17 @@ The idea is that the theme configuration isn't scattered randomly across your ho
 
 The theme lives in:
 
-``` text
+```text
 ~/.config/neet-themes/
 ```
 
-and `neet-theme` [yeah] applies the configuration across the different parts of the desktop.
+and `neet-theme` *(yeah)* applies the configuration across the different parts of the desktop.
 
 ---
 
-``` text
+## project structure
+
+```text
 Nicing/
 ├── config/
 │   ├── bashrc
@@ -240,13 +240,13 @@ Also, some GNOME Shell changes may require a logout/login or shell restart.
 
 ---
 
-## restoring/removing it
+## configuration locations
 
 The installer is intentionally simple and predictable.
 
 Most Nicing configuration is stored in the repo and copied to standard locations under:
 
-``` text
+```text
 ~/.config/
 ~/.local/
 ~/.themes/
