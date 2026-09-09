@@ -51,13 +51,13 @@ The Eclipse imagery — it all ended up matching the aesthetic of the rice way t
 
 ![desktop](screenshots/DT.png)
 
-###desktop with topbar and dock
+### desktop with topbar and dock
 
 ![Nicing desktop with dock and top bar](screenshots/DTwithdockntop.png)
 
 ### terminal
 
-![terminal](screenshots/termianledited.png)
+![terminal](screenshots/terminaledited.png)
 
 ### system monitoring
 
