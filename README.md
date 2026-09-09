@@ -8,8 +8,6 @@ I built this because at some point I got tired of the default Ubuntu desktop loo
 
 So I started messing with GTK, GNOME Shell, Fastfetch, btop, terminal colors, icons, wallpapers, extensions, random CSS bullshit, and eventually it turned into an actual setup, in the mean time, I fucked it up dozens of times, so then I started to use git.
 
-The result is **Nicing** — a dark GNOME setup with a bunch of small customizations that are supposed to work together instead of looking like 15 different themes got thrown at the desktop.
-
 ---
 
 ## what it looks like
