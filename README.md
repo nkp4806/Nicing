@@ -49,27 +49,27 @@ The Eclipse imagery — it all ended up matching the aesthetic of the rice way t
 
 ### the desktop
 
-![Nicing desktop](screenshots/DT.png)
+![desktop](screenshots/DT.png)
+
+###desktop with topbar and dock
+
+![Nicing desktop with dock and top bar](screenshots/DTwithdockntop.png)
 
 ### terminal
 
-![Nicing terminal](screenshots/termianledited.png)
+![terminal](screenshots/termianledited.png)
 
 ### system monitoring
 
-![Nicing btop](screenshots/btop.png)
+![btop](screenshots/btop.png)
 
 ### files
 
-![Nicing Files](screenshots/fileandstuff.png)
+![Files](screenshots/fileandstuff.png)
 
 ### workspace switching
 
-![Nicing workspace switch](screenshots/switch.png)
-
-### another desktop view
-
-![Nicing desktop with dock and top bar](screenshots/DTwithdockntop.png)
+![workspace switch](screenshots/switch.png)
 
 ---
 
