@@ -1,6 +1,5 @@
 # Nicing
-
-> I named it like "Neet's Ricing", yeah didn't give a long thought for naming it.
+I named it like "Neet's Ricing", yeah didn't give a long thought for naming it.
 
 Nicing is my personal GNOME rice for Ubuntu.
 
@@ -116,9 +115,9 @@ You may need to open a new terminal and/or log out and back in for some GNOME ch
 
 ---
 
-## what the installer actually does
+## what the installer does
 
-The installer isn't just copying one GTK file but it sets up the following
+The installer sets up the following
 
 ### theme
 
@@ -150,13 +149,13 @@ The installer isn't just copying one GTK file but it sets up the following
 
 ### icons
 
-Nicing includes a small Neet-Papirus icon theme override.
+Nicing includes a small Neet-Papirus(what else could I name it) icon theme override.
 
 It inherits from Papirus-Dark instead of replacing the entire icon theme.
 
-That means we only override the icons we actually want to change.
+That means we only override the icons we want to change.
 
-For example, image file icons are changed from the usual cyan Papirus style to the crimson accent.
+For example, image file icons are changed from the usual style to the crimson accent.
 
 ### wallpaper
 
