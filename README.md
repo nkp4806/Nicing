@@ -39,9 +39,7 @@ The general idea is:
 
 The main wallpaper is based around **Griffith during the Eclipse**.
 
-If you've seen Berserk, you know exactly why that fits the whole thing.
-
-The Eclipse imagery — it all ended up matching the aesthetic of the rice way too well. so yeah.
+If you've seen Berserk, you know why that fits the thing.
 
 ---
 
